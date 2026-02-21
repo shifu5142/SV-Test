@@ -1,13 +1,16 @@
-
-
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import AddFormRoom from './pages/AddFormRoom'
 
 function App() {
-
+  // const res = await fetch("http://localhost:3000")חיבור לסרבר
   return (
     <>
-    <h1>Hello World</h1>
-      </>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/AddFormRoom" element={<AddFormRoom />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 
