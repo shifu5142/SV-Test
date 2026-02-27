@@ -1,5 +1,5 @@
 function App() {
-  const res = fetch(import.meta.env.VITE_PORT_CONNECTION + "/")
+  const res = fetch(import.meta.env.VITE_BACKEND_CONNECTION + "/")
     .then((res) => res.json())
     .then((data) => console.log(data));
   return (
