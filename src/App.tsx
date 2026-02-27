@@ -1,5 +1,7 @@
 function App() {
-  // const res = await fetch("http://localhost:3000")חיבור לסרבר
+  const res = fetch(import.meta.env.VITE_PORT_CONNECTION + "/")
+    .then((res) => res.json())
+    .then((data) => console.log(data));
   return (
     <>
       <h1>hello</h1>
