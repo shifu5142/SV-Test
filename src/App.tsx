@@ -1,8 +1,7 @@
 function App() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_CONNECTION;
-  const res = fetch(BACKEND_URL + "/")
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  const res = fetch(BACKEND_URL + "/").then((res) => console.log(res));
+
   console.log(res);
   return (
     <>
