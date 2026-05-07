@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddMovie from "./components/add-movie";
 import Home from "./components/ui/home";
 import AllMovies from "./components/all-movies";
+import SearchMovie from "./components/search-movie";
 function App() {
   // Strip trailing slashes so we never get "//"
   const BACKEND_URL = (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/AddMovie" element={<AddMovie />} />
         <Route path="/all-movies" element={<AllMovies />} />
+        <Route path="/SearchMovie" element={<SearchMovie />} />
       </Routes>
     </BrowserRouter>
   );
