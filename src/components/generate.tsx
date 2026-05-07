@@ -9,7 +9,29 @@ import { Label } from "@/components/ui/label";
 function Generate() {
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
-
+  const [plan, setPlan] = useState("");
+  const BACKEND_URL = (
+    import.meta.env.VITE_BACKEND_CONNECTION || "http://localhost:3000"
+  ).replace(/\/+$/, "");
+  const handleGenerate = async () => {
+    const response = await fetch(BACKEND_URL + "/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, genre }),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to generate content");
+    }
+    const data = await response.json();
+    if (data.success) {
+      setPlan(data.plan);
+    } else {
+      throw new Error("Failed to generate content");
+    }
+    console.log(data);
+  };
   return (
     <div className="min-h-screen bg-muted/30 flex">
       <MenuBar />
@@ -40,7 +62,9 @@ function Generate() {
               />
             </div>
 
-            <Button className="w-full">צור תוכן עם AI</Button>
+            <Button onClick={handleGenerate} className="w-full">
+              צור תוכן עם AI
+            </Button>
           </CardContent>
         </Card>
       </main>
