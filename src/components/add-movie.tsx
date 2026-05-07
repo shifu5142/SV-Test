@@ -10,7 +10,9 @@ type Movie = {
   genre: string;
   description: string;
 };
-
+const BACKEND_URL = (
+  import.meta.env.VITE_BACKEND_CONNECTION || "http://localhost:3000"
+).replace(/\/+$/, "");
 function AddMovie() {
   const [movieName, setMovieName] = useState("");
   const [genre, setGenre] = useState("");
@@ -21,37 +23,23 @@ function AddMovie() {
     const trimmedName = movieName.trim();
     const trimmedGenre = genre.trim();
     const trimmedDescription = description.trim();
-
     if (trimmedName.length < 1) {
       alert("שם הסרט חובה - לפחות תו אחד.");
       return;
     }
-
     if (trimmedName.length > 20) {
       alert("שם הסרט יכול להכיל עד 20 תווים בלבד.");
       return;
     }
-
     if (trimmedGenre.length < 1) {
       alert("ז׳אנר חובה - לפחות תו אחד.");
       return;
     }
-
     if (trimmedDescription.length > 200) {
       alert("תיאור הסרט יכול להכיל עד 200 תווים בלבד.");
       return;
     }
-
-    setMovies((prev) => [
-      ...prev,
-      { name: trimmedName, genre: trimmedGenre, description: trimmedDescription },
-    ]);
-    setMovieName("");
-    setGenre("");
-    setDescription("");
-    alert("הסרט נוסף בהצלחה!");
-  };
-
+    const response = await fetch("http://localhost:3000/movies", {
   return (
     <div className="min-h-screen bg-muted/30 flex">
       <MenuBar />
