@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddMovie from "./components/add-movie";
 import Home from "./components/ui/home";
+import AllMovies from "./components/all-movies";
 function App() {
   // Strip trailing slashes so we never get "//"
   const BACKEND_URL = (
@@ -15,18 +16,13 @@ function App() {
     .catch((err) => console.error(err));
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/add-movie" element={<AddMovie />} />
-          <Route path="/search-movie" element={<searchMovie />} />
-          <Route path="/all-movies" element={<allMovies />} />
-        </Routes>
-      </BrowserRouter>
-      <h1>hello</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/AddMovie" element={<AddMovie />} />
+        <Route path="/all-movies" element={<AllMovies />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;

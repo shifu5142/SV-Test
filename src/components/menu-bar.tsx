@@ -15,10 +15,10 @@ function MenuBar() {
           <Link to="/all-movies">All Movies</Link>
         </Button>
         <Button asChild variant="outline" className="w-full justify-start">
-          <Link to="/add-movie">Add Movie</Link>
+          <Link to="/AddMovie">Add Movie</Link>
         </Button>
         <Button asChild variant="outline" className="w-full justify-start">
-          <Link to="/search-movie">Search Movie</Link>
+          <Link to="/SearchMovie">Search Movie</Link>
         </Button>
       </nav>
     </aside>

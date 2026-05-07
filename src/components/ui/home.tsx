@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -30,8 +32,8 @@ function Home() {
                   <span aria-hidden="true">▶</span>
                   Watch Trailer
                 </Button>
-                <Button size="lg" variant="outline">
-                  Browse Movies
+                <Button asChild size="lg" variant="outline">
+                  <Link to="/all-movies">Browse Movies</Link>
                 </Button>
               </div>
             </div>
