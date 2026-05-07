@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -118,9 +117,6 @@ function Home() {
                 2h 03m
               </div>
             </CardContent>
-            <CardFooter>
-              <Button className="w-full">Delete</Button>
-            </CardFooter>
           </Card>
 
           <Card>
@@ -138,9 +134,6 @@ function Home() {
                 1h 49m
               </div>
             </CardContent>
-            <CardFooter>
-              <Button className="w-full">Delete</Button>
-            </CardFooter>
           </Card>
 
           <Card>
@@ -158,9 +151,6 @@ function Home() {
                 2h 11m
               </div>
             </CardContent>
-            <CardFooter>
-              <Button className="w-full">Delete</Button>
-            </CardFooter>
           </Card>
 
           <Card>
@@ -178,9 +168,6 @@ function Home() {
                 2h 00m
               </div>
             </CardContent>
-            <CardFooter>
-              <Button className="w-full">Delete</Button>
-            </CardFooter>
           </Card>
 
           <Card>
@@ -198,9 +185,6 @@ function Home() {
                 1h 44m
               </div>
             </CardContent>
-            <CardFooter>
-              <Button className="w-full">Delete</Button>
-            </CardFooter>
           </Card>
 
           <Card>
@@ -218,9 +202,6 @@ function Home() {
                 2h 16m
               </div>
             </CardContent>
-            <CardFooter>
-              <Button className="w-full">Delete</Button>
-            </CardFooter>
           </Card>
         </div>
       </section>
