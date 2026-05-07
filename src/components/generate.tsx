@@ -65,6 +65,15 @@ function Generate() {
             <Button onClick={handleGenerate} className="w-full">
               צור תוכן עם AI
             </Button>
+
+            {plan && (
+              <div className="rounded-md border border-border bg-muted/50 p-3">
+                <p className="mb-1 text-sm font-medium">התוכנית שנוצרה:</p>
+                <p className="whitespace-pre-wrap text-sm text-muted-foreground">
+                  {plan}
+                </p>
+              </div>
+            )}
           </CardContent>
         </Card>
       </main>

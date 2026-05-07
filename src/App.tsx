@@ -24,7 +24,7 @@ function App() {
         <Route path="/AddMovie" element={<AddMovie />} />
         <Route path="/all-movies" element={<AllMovies />} />
         <Route path="/SearchMovie" element={<SearchMovie />} />
-        <Route path="/Generate" element={<Generate />} />
+        <Route path="/generate" element={<Generate />} />
       </Routes>
     </BrowserRouter>
   );
