@@ -28,9 +28,8 @@ function Home() {
                 chips, and trending titles. No functionality, only UI.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Button size="lg">
-                  <span aria-hidden="true">▶</span>
-                  Watch Trailer
+                <Button asChild size="lg">
+                  <Link to="/generate">AI Content Plan</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <Link to="/all-movies">Browse Movies</Link>
