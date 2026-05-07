@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import MenuBar from "@/components/menu-bar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -41,8 +42,21 @@ function AddMovie() {
       return;
     }
 
-    return (
-      <div className="min-h-screen bg-muted/30 p-4">
+    setMovies((prev) => [
+      ...prev,
+      { name: trimmedName, genre: trimmedGenre, description: trimmedDescription },
+    ]);
+    setMovieName("");
+    setGenre("");
+    setDescription("");
+    alert("הסרט נוסף בהצלחה!");
+  };
+
+  return (
+    <div className="min-h-screen bg-muted/30 flex">
+      <MenuBar />
+
+      <main className="flex-1 p-4 md:p-8">
         <Card className="mx-auto mt-8 w-full max-w-xl">
           <CardHeader>
             <CardTitle>הוספת סרט חדש</CardTitle>
@@ -77,8 +91,8 @@ function AddMovie() {
         <p className="mt-3 text-center text-sm text-muted-foreground">
           סה״כ סרטים שנוספו: {movies.length}
         </p>
-      </div>
-    );
-  };
+      </main>
+    </div>
+  );
 }
 export default AddMovie;

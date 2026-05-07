@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddMovie from "./components/add-movie";
 import Home from "./components/ui/home";
 function App() {
   // Strip trailing slashes so we never get "//"
@@ -18,6 +19,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/add-movie" element={<AddMovie />} />
+          <Route path="/search-movie" element={<searchMovie />} />
+          <Route path="/all-movies" element={<allMovies />} />
         </Routes>
       </BrowserRouter>
       <h1>hello</h1>
