@@ -28,7 +28,7 @@ function AllMovies() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch(BACKEND_URL + "/get-movies", {
+        const response = await fetch(BACKEND_URL + "/all-movies", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function AllMovies() {
         const data = await response.json();
 
         // Supports both: array response OR { movies: [...] }
-        const nextMovies = Array.isArray(data) ? data : data.movies;
+        const nextMovies = Array.isArray(data) ? data : data.movies; // אני יודע שזה בודק אם זה מערך אם לא משתמש במשהו אחר
         setMovies(Array.isArray(nextMovies) ? nextMovies : []);
       } catch (error) {
         console.error(error);
@@ -49,7 +49,28 @@ function AllMovies() {
     };
 
     void fetchMovies();
-  }, [BACKEND_URL]);
+  }, []);
+  const handleDeleteMovie = async (movieId: string) => {
+    const response = await fetch(BACKEND_URL + "/delete-movie", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ movieId }),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete movie");
+    }
+    const data = await response.json();
+    console.log(data);
+    if (data.success) {
+      setMovies((prev) =>
+        prev.filter((movie) => (movie._id ?? movie.id) !== movieId),
+      );
+    } else {
+      throw new Error("Failed to delete movie");
+    }
+  };
   return (
     <div className="min-h-screen bg-muted/30 flex">
       <MenuBar />
@@ -62,8 +83,12 @@ function AllMovies() {
             {movies.map((movie, index) => (
               <Card key={movie._id ?? movie.id ?? `${movie.name}-${index}`}>
                 <CardHeader>
-                  <CardTitle>{movie.name ?? movie.title ?? "Untitled Movie"}</CardTitle>
-                  <CardDescription>Genre: {movie.genre ?? "Unknown"}</CardDescription>
+                  <CardTitle>
+                    {movie.name ?? movie.title ?? "Untitled Movie"}
+                  </CardTitle>
+                  <CardDescription>
+                    Genre: {movie.genre ?? "Unknown"}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
@@ -71,7 +96,15 @@ function AllMovies() {
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="destructive" className="w-full">
+                  <Button
+                    variant="destructive"
+                    className="w-full"
+                    onClick={() =>
+                      handleDeleteMovie(
+                        (movie._id ?? movie.id ?? "").toString(),
+                      )
+                    }
+                  >
                     מחיקת סרט
                   </Button>
                 </CardFooter>
