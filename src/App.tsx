@@ -3,6 +3,7 @@ import AddMovie from "./components/add-movie";
 import Home from "./components/ui/home";
 import AllMovies from "./components/all-movies";
 import SearchMovie from "./components/search-movie";
+import Generate from "./components/generate";
 function App() {
   // Strip trailing slashes so we never get "//"
   const BACKEND_URL = (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/AddMovie" element={<AddMovie />} />
         <Route path="/all-movies" element={<AllMovies />} />
         <Route path="/SearchMovie" element={<SearchMovie />} />
+        <Route path="/Generate" element={<Generate />} />
       </Routes>
     </BrowserRouter>
   );

@@ -13,7 +13,7 @@ function AddMovie() {
   const [genre, setGenre] = useState("");
   const [description, setDescription] = useState("");
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
-    null
+    null,
   );
 
   const handleAddMovie = async () => {
@@ -38,7 +38,7 @@ function AddMovie() {
       return;
     }
     try {
-      const response = await fetch(BACKEND_URL + "/add-movie", {
+      const response = await fetch(BACKEND_URL + "/AddMovie", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
